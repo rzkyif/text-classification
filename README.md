@@ -31,3 +31,8 @@ A repository for training and testing multiple text classification models.
 To see available commands, execute this command:
 
     python main.py -h
+
+Example command: start training on BERT model:
+
+    python main.py train bert
+    
