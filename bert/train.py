@@ -34,11 +34,11 @@ TRAINING_ARGUMENTS = [
 # training function
 def start_train():
   # load and tokenize data
-  tokenizer = AutoTokenizer.from_pretrained("indolem/indobert-base-uncased")
+  tokenizer = AutoTokenizer.from_pretrained("indolem/indobert-base-uncased", padding="max_length", truncation=True, model_max_length=512)
   tokenized_data = load_data().map(lambda x: {
     "text": x["text"],
     "label": 1 if x["label"] == 'yes' else 0
-  }).map(lambda x: tokenizer(x['text']))
+  }).map(lambda x: tokenizer(x['text'], truncation=True, max_length=512))
 
   # create data collator
   data_collator = DataCollatorWithPadding(tokenizer=tokenizer)
