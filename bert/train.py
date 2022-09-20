@@ -14,7 +14,8 @@ TRAINING_ARGUMENTS = [
     save_total_limit=2,
     load_best_model_at_end=True,
     evaluation_strategy='epoch',
-    save_strategy='epoch'
+    save_strategy='epoch',
+    metric_for_best_model='accuracy'
   ),
   TrainingArguments(
     output_dir="./bert/results/4-16",
@@ -25,7 +26,8 @@ TRAINING_ARGUMENTS = [
     save_total_limit=2,
     load_best_model_at_end=True,
     evaluation_strategy='epoch',
-    save_strategy='epoch'
+    save_strategy='epoch',
+    metric_for_best_model='accuracy'
   ),
   TrainingArguments(
     output_dir="./bert/results/4-32",
@@ -36,7 +38,8 @@ TRAINING_ARGUMENTS = [
     save_total_limit=2,
     load_best_model_at_end=True,
     evaluation_strategy='epoch',
-    save_strategy='epoch'
+    save_strategy='epoch',
+    metric_for_best_model='accuracy'
   )
 ]
 
