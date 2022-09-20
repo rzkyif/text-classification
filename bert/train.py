@@ -13,7 +13,8 @@ TRAINING_ARGUMENTS = [
     num_train_epochs=25,
     save_total_limit=2,
     load_best_model_at_end=True,
-    evaluation_strategy='epoch'
+    evaluation_strategy='epoch',
+    save_strategy='epoch'
   ),
   TrainingArguments(
     output_dir="./bert/results/4-16",
@@ -23,7 +24,8 @@ TRAINING_ARGUMENTS = [
     num_train_epochs=25,
     save_total_limit=2,
     load_best_model_at_end=True,
-    evaluation_strategy='epoch'
+    evaluation_strategy='epoch',
+    save_strategy='epoch'
   ),
   TrainingArguments(
     output_dir="./bert/results/4-32",
@@ -33,7 +35,8 @@ TRAINING_ARGUMENTS = [
     num_train_epochs=25,
     save_total_limit=2,
     load_best_model_at_end=True,
-    evaluation_strategy='epoch'
+    evaluation_strategy='epoch',
+    save_strategy='epoch'
   )
 ]
 
