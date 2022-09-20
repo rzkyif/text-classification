@@ -11,6 +11,7 @@ TRAINING_ARGUMENTS = [
     per_device_train_batch_size=16,
     per_device_eval_batch_size=16,
     num_train_epochs=25,
+    save_steps=35000,
     evaluation_strategy='epoch'
   ),
   TrainingArguments(
@@ -19,6 +20,7 @@ TRAINING_ARGUMENTS = [
     per_device_train_batch_size=16,
     per_device_eval_batch_size=16,
     num_train_epochs=25,
+    save_steps=35000,
     evaluation_strategy='epoch'
   ),
   TrainingArguments(
@@ -27,6 +29,7 @@ TRAINING_ARGUMENTS = [
     per_device_train_batch_size=32,
     per_device_eval_batch_size=32,
     num_train_epochs=25,
+    save_steps=35000,
     evaluation_strategy='epoch'
   )
 ]
