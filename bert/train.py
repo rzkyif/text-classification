@@ -6,7 +6,7 @@ from evaluate import load as load_metric
 # define training hyperparameters
 TRAINING_ARGUMENTS = [
   TrainingArguments(
-    output_dir="./bert/results/4-16",
+    output_dir="./bert/results/1-16",
     learning_rate=1e-5,
     per_device_train_batch_size=16,
     per_device_eval_batch_size=16,
@@ -14,7 +14,7 @@ TRAINING_ARGUMENTS = [
     evaluation_strategy='epoch'
   ),
   TrainingArguments(
-    output_dir="./bert/results/1-16",
+    output_dir="./bert/results/4-16",
     learning_rate=4e-5,
     per_device_train_batch_size=16,
     per_device_eval_batch_size=16,
@@ -22,7 +22,7 @@ TRAINING_ARGUMENTS = [
     evaluation_strategy='epoch'
   ),
   TrainingArguments(
-    output_dir="./bert/results/2-8",
+    output_dir="./bert/results/4-32",
     learning_rate=4e-5,
     per_device_train_batch_size=32,
     per_device_eval_batch_size=32,
