@@ -56,8 +56,9 @@ def start_train():
       predictions = np.argmax(logits, axis=-1)
       return metric.compute(predictions=predictions, references=labels)
 
-  # start training for each hyperparameter
+  # for each hyperparameter...
   for training_args in TRAINING_ARGUMENTS:
+    # start training
     trainer = Trainer(
         model=model,
         args=training_args,
@@ -68,3 +69,9 @@ def start_train():
         compute_metrics=compute_metrics
     )
     trainer.train()
+
+    # save model
+    trainer.save_model()
+
+    # evaluate model and save metrics
+    trainer.save_metrics("all", trainer.evaluate())
