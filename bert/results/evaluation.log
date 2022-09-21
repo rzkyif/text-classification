@@ -1,0 +1,72 @@
+----------------- MODEL BASE START -----------------
+
+Loading model...
+...loaded! (13.63ms)
+
+Loading test data...
+...loaded! (1.89ms)
+
+Preparing metrics...
+...metrics ready! (2.13ms)
+
+Evaluating model 'BASE'...
+...finished! (50.10ms)
+
+Evaluation results:
+{'eval_loss': 0.6732280850410461, 'eval_accuracy': 0.5971428571428572, 'eval_runtime': 49.799, 'eval_samples_per_second': 56.226, 'eval_steps_per_second': 7.028}
+
+------------------ MODEL BASE END ------------------
+----------------- MODEL 1-16 START -----------------
+
+Loading model...
+...loaded! (9.16ms)
+
+Loading test data...
+...loaded! (1.21ms)
+
+Preparing metrics...
+...metrics ready! (2.15ms)
+
+Evaluating model '1-16'...
+...finished! (58.54ms)
+
+Evaluation results:
+{'eval_loss': 0.3266664445400238, 'eval_accuracy': 0.8732142857142857, 'eval_runtime': 58.247, 'eval_samples_per_second': 48.071, 'eval_steps_per_second': 3.004}
+
+------------------ MODEL 1-16 END ------------------
+----------------- MODEL 4-16 START -----------------
+
+Loading model...
+...loaded! (7.09ms)
+
+Loading test data...
+...loaded! (1.13ms)
+
+Preparing metrics...
+...metrics ready! (2.17ms)
+
+Evaluating model '4-16'...
+...finished! (58.90ms)
+
+Evaluation results:
+{'eval_loss': 0.5936902165412903, 'eval_accuracy': 0.8764285714285714, 'eval_runtime': 58.6708, 'eval_samples_per_second': 47.724, 'eval_steps_per_second': 2.983}
+
+------------------ MODEL 4-16 END ------------------
+----------------- MODEL 4-32 START -----------------
+
+Loading model...
+...loaded! (11.08ms)
+
+Loading test data...
+...loaded! (1.15ms)
+
+Preparing metrics...
+...metrics ready! (2.12ms)
+
+Evaluating model '4-32'...
+...finished! (68.92ms)
+
+Evaluation results:
+{'eval_loss': 0.5083897709846497, 'eval_accuracy': 0.8767857142857143, 'eval_runtime': 68.652, 'eval_samples_per_second': 40.785, 'eval_steps_per_second': 1.282}
+
+------------------ MODEL 4-32 END ------------------
