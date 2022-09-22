@@ -2,11 +2,12 @@ import re
 import nltk
 from data import load_with_datasets
 # import StemmerFactory class
-# from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
+from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
 # create stemmer
 import gensim
 import numpy as np
 from sklearn.ensemble import RandomForestClassifier
+from transformers import AutoTokenizer, DataCollatorWithPadding, AutoModelForSequenceClassification, TrainingArguments, Trainer
 from sklearn.metrics import precision_score, recall_score
 
 
@@ -34,41 +35,40 @@ def start_train():
   test_labels = list(map(lambda x: 1 if x == 'yes' else 0, test_labels))
 
   X_train = tokenized
-  y_train = labels
-  X_test = test_tokenized
-  y_test = test_labels
 
   # bisa ad parameter vector_size, window
-  model = gensim.models.Word2Vec(X_train, min_count=1)
-  model.wv.most_similar('coronavirus')
+  model = gensim.models.Word2Vec(X_train, min_count=1, vector_size=100, window=100)
+  # model.wv.most_similar('coronavirus')
 
-  words = set(model.wv.index_to_key)
-  X_train_vect = np.array([np.array([model.wv[i] for i in ls if i in words]) for ls in X_train])
-  X_test_vect = np.array([np.array([model.wv[i] for i in ls if i in words]) for ls in X_test])
+  model.save("w2v.model")
 
-  X_train_vect_avg = []
-  for v in X_train_vect:
-    if v.size:
-        X_train_vect_avg.append(v.mean(axis=0))
-    else:
-        X_train_vect_avg.append(np.zeros(100, dtype=float))
+  # words = set(model.wv.index_to_key)
+  # X_train_vect = np.array([np.array([model.wv[i] for i in ls if i in words], dtype=object) for ls in X_train], dtype=object)
+  # X_test_vect = np.array([np.array([model.wv[i] for i in ls if i in words], dtype=object) for ls in X_test], dtype=object)
+
+  # X_train_vect_avg = []
+  # for v in X_train_vect:
+  #   if v.size:
+  #       X_train_vect_avg.append(v.mean(axis=0))
+  #   else:
+  #       X_train_vect_avg.append(np.zeros(100, dtype=float))
           
-  X_test_vect_avg = []
-  for v in X_test_vect:
-    if v.size:
-        X_test_vect_avg.append(v.mean(axis=0))
-    else:
-        X_test_vect_avg.append(np.zeros(100, dtype=float))
+  # X_test_vect_avg = []
+  # for v in X_test_vect:
+  #   if v.size:
+  #       X_test_vect_avg.append(v.mean(axis=0))
+  #   else:
+  #       X_test_vect_avg.append(np.zeros(100, dtype=float))
   
-  rf = RandomForestClassifier()
-  rf_model = rf.fit(X_train_vect_avg, y_train)
+  # rf = RandomForestClassifier()
+  # rf_model = rf.fit(X_train_vect_avg, y_train)
 
-  y_pred = rf_model.predict(X_test_vect_avg)
+  # y_pred = rf_model.predict(X_test_vect_avg)
 
-  precision = precision_score(y_test, y_pred)
-  recall = recall_score(y_test, y_pred)
-  print('Precision: {} / Recall: {} / Accuracy: {}'.format(
-      round(precision, 3), round(recall, 3), round((y_pred==y_test).sum()/len(y_pred), 3)))
+  # precision = precision_score(y_test, y_pred)
+  # recall = recall_score(y_test, y_pred)
+  # print('Precision: {} / Recall: {} / Accuracy: {}'.format(
+  #     round(precision, 3), round(recall, 3), round((y_pred==y_test).sum()/len(y_pred), 3)))
   
   # print(X_test_vect)
   pass
@@ -87,7 +87,7 @@ def utils_preprocess_text(text):
         lst_text = [word for word in lst_text if word not in 
                     lst_stopwords]
                 
-    # ## Stemming (remove -ing, -ly, ...)
+    ## Stemming (remove -ing, -ly, ...)
     # factory = StemmerFactory()
     # stemmer = factory.create_stemmer()
     # # stemming process
