@@ -1,13 +1,7 @@
-import re
-import nltk
 from data import load_with_datasets
-# import StemmerFactory class
-from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
-# create stemmer
 import gensim
 import numpy as np
 from sklearn.ensemble import RandomForestClassifier
-from transformers import AutoTokenizer, DataCollatorWithPadding, AutoModelForSequenceClassification, TrainingArguments, Trainer
 from sklearn.metrics import precision_score, recall_score
 from .train import utils_preprocess_text
 
