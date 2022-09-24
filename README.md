@@ -24,7 +24,7 @@ A repository for training and testing multiple text classification models.
 
 3. Install requirements
 
-        pip install -r requirements
+        pip install nltk xgboost sklearn datasets transformers evaluate gensim numpy Sastrawi torch
 
 ## Usage
 
