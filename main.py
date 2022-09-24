@@ -2,7 +2,7 @@ import argparse
 import importlib
 
 SUPPORTED_COMMANDS = ['train', 'test']
-SUPPORTED_MODELS = ['xgboost', 'word2vec', 'bert']
+SUPPORTED_MODELS = ['xgb', 'word2vec', 'bert']
 
 def main(args):
   model = importlib.import_module(args.model)
